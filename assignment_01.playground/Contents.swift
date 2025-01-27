@@ -13,13 +13,16 @@ struct Creature {
     
     //prints out message based on goodness of the creature instance
     func interactWith(selectedCreature: Creature) {
-        switch isGood {
-        case true:
+        switch (selectedCreature.isGood, self.isGood) {
+        case (true, true):
             print("You are well protected by this monster")
-        case false:
+        case (true, false):
             print("Oh no. Hide as this monster will eat you")
+        case (false, true):
+            print("false, true")
+        case (false, false):
+            print("false, false")
         }
-        
     }
 
 }
@@ -74,3 +77,5 @@ func describeCreate(creatureArray: [Creature], creatureInstance: Creature) {
 
 
 describeCreate(creatureArray: creatureCatalog, creatureInstance: creatureOne)
+
+
